@@ -30,14 +30,12 @@ export class AppComponent implements OnInit {
 
 
   isCorrect(savedAnswer: string) {
-    if (savedAnswer.toLowerCase == this.questionInfo.answer.toLowerCase) {
+    if (savedAnswer == this.questionInfo.answer) {
       this.score += this.questionInfo.value;
       alert("that is correct");
-      savedAnswer = "";
     } else {
       this.score -= this.questionInfo.value;
       alert("that is wrong!")
-      savedAnswer = "";
     }
     this.getDataFromService();
   }

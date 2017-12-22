@@ -21,6 +21,7 @@ export class AnswersComponent implements OnInit {
 
   submitAnswer() {
     this.buttonClicked.emit(this.savedAnswer);
+    this.savedAnswer="";
   }
 
 

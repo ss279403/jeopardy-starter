@@ -1,5 +1,5 @@
 <br>
-What is?<input [(ngModel)]="savedAnswer" type="text">
+What is? <input (keydown.enter)="submitAnswer()" [(ngModel)]="savedAnswer" type="text">
 
 
 <button (click)="submitAnswer()">Submit Answer</button>
