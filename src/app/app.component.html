@@ -6,10 +6,10 @@ The category is: {{questionInfo?.category.title}}
 <br>
 The answer is: {{questionInfo?.answer}}
 <br>
-Your score is: {{ score }}
+Your score is: {{ answerScore.score }}
 
 <br>
 
-<app-answers (buttonClicked)="isCorrect($event)"></app-answers>
+    <app-answers #answerScore (buttonClicked)="getDataFromService()" [questionInfo]="questionInfo"></app-answers>
 
 

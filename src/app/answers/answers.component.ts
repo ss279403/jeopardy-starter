@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-answers',
@@ -7,8 +7,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class AnswersComponent implements OnInit {
 
-
+  @Input() questionInfo;
   savedAnswer: string;
+  score: number = 0;
 
   @Output() buttonClicked = new EventEmitter();
 
@@ -19,10 +20,17 @@ export class AnswersComponent implements OnInit {
   }
 
 
-  submitAnswer() {
-    this.buttonClicked.emit(this.savedAnswer);
-    this.savedAnswer="";
+
+  isCorrect(): void {
+    if (this.savedAnswer.toLowerCase() == this.questionInfo.answer.toLowerCase()) {
+      this.score += this.questionInfo.value;
+      alert("that is correct");
+    } else {
+      this.score -= this.questionInfo.value;
+      alert("that is wrong!")
+    }
+    this.buttonClicked.emit();
+    this.savedAnswer = "";
   }
-
-
+  
 }
